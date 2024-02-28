@@ -51,7 +51,7 @@ app.post('/login', (req, res) => {
 // Rota para obter informações do usuário
 app.get('/user/:caff', (req, res) => {
   const { caff } = req.params;
-  const query = `SELECT * FROM FRAFEM FRA, FRATERNIDADES FRAT, LOJAS LOJ WHERE FRA.FRAFEMCOD = FRAT.IDFRATERNIDADES AND FRAT.LOJCOD = LOJ.LOJCOD AND FRA.CAFF = '${caff}'`;
+  const query = `SELECT * FROM frafem FRA, fraternidades FRAT, lojas LOJ WHERE FRA.FRAFEMCOD = FRAT.IDFRATERNIDADES AND FRAT.LOJCOD = LOJ.LOJCOD AND FRA.CAFF = '${caff}'`;
 
   connection.query(query, (err, result) => {
     if (err) {
