@@ -4,8 +4,16 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const app = express();
-app.use(cors());
-const port = process.env.PORT || 3000;
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Method", 'GET,PUT,POST,DELETE');
+  app.use(cors());
+  next();
+})
+
+
+const port = 3000;
 
 // Configuração do MySQL
 const connection = mysql.createConnection({
