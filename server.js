@@ -5,7 +5,7 @@ const mysql = require('mysql');
 
 const app = express();
 app.use(cors());
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configuração do MySQL
 const connection = mysql.createConnection({
