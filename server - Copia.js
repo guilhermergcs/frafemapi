@@ -1,18 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const mysql = require('mysql');
 require('dotenv').config();
 
 const app = express();
 
+app.use(express.json())
+
+app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 3000;
 
 // Configuração do MySQL
 const connection = mysql.createConnection({
-  host: 'gob_app_frafem.mysql.dbaas.com.br',
-  user: 'gob_app_frafem',
-  password: 'Esquadro@gob20',
-  database: 'gob_app_frafem',
+  host: 'localhost',
+  user: 'gob_paramaconicas',
+  password: 'Esquadro@2015',
+  database: 'gob_paramaconicas',
 });
 
 connection.connect(err => {
@@ -23,7 +31,6 @@ connection.connect(err => {
   console.log('Conectado ao banco de dados MySQL');
 });
 
-app.use(bodyParser.json());
 // Rota para autenticação de login
 app.post('/login', (req, res) => {
   const { caff, frafemcod } = req.body;

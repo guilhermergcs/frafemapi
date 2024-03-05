@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "4307e1c2-d6d7-4b25-8f13-356f1d346ad9"
+      }
+    },
+    "android": {
+      "package": "com.guilhermergcs.frafemapi"
+    }
+  }
+}
